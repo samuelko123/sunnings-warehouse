@@ -13,8 +13,8 @@ export default function Home() {
 
 			<Header>
 				<Link href='/' passHref={true}>
-					<a>
-						<Image src="/logo.svg" alt="logo" width={139} height={25} />
+					<a title='Home'>
+						<Image src="/logo.svg" alt="Gunnings" width={139} height={25} />
 					</a>
 				</Link>
 			</Header>
