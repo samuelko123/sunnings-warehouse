@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 
-export const Header = styled.header`
-    position: relative;
-
+export const HeaderTop = styled.div`
     display: flex;
     flex-direction: row;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
     justify-content: space-between;
     align-content: center;
 
@@ -13,12 +11,25 @@ export const Header = styled.header`
     color: ${props => props.theme.color.onPrimary};
 `
 
+export const HeaderBottom = styled.div`
+    display: flex;
+    flex-direction: row;
+	flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+
+    background-color: ${props => props.theme.color.surface};
+    color: ${props => props.theme.color.onSurface};
+`
+
 export const HeaderContainerLeft = styled.div`
     display: flex;
     flex-direction: row;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
     justify-content: flex-start;
     align-content: center;
+
+    flex: 1;
 `
 
 export const HeaderContainerCentre = styled.div`
@@ -27,18 +38,22 @@ export const HeaderContainerCentre = styled.div`
 	flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+
+    flex: 1;
 `
 
 export const HeaderContainerRight = styled.div`
     display: flex;
     flex-direction: row;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
     justify-content: flex-end;
     align-content: center;
+
+    flex: 1;
 `
 
 export const HeaderLink = styled.a`
-    padding: 1rem 1rem;
+    padding: 1rem;
     &:hover {
         background-color: ${props => props.theme.color.hoverPrimary};
     }
