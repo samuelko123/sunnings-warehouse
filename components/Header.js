@@ -53,7 +53,7 @@ export const HeaderContainerRight = styled.div`
 `
 
 export const HeaderLink = styled.a`
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     &:hover {
         background-color: ${props => props.theme.color.hoverPrimary};
     }
