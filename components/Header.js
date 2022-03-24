@@ -18,6 +18,8 @@ export const HeaderBottom = styled.div`
     justify-content: center;
     align-content: center;
 
+    padding: 0.25rem;
+
     background-color: ${props => props.theme.color.surface};
     color: ${props => props.theme.color.onSurface};
 `
