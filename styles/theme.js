@@ -4,6 +4,7 @@ export const theme = {
 		onBackground: '#0d5257',
 		primary: '#0d5257',
 		onPrimary: '#dedede',
+		hoverPrimary: '#3d7579',
 		surface: '#ffffff',
 		onSurface: '#515151',
 	},
