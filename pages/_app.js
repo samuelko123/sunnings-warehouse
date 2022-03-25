@@ -25,6 +25,10 @@ const GlobalStyle = createGlobalStyle`
 	* {
 		box-sizing: border-box;
 	}
+
+	figure {
+		margin: 0;
+	}
 `
 
 function App(props) {

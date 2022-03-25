@@ -1,6 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import React from 'react'
+
+import Slider from 'react-slick'
+import '../node_modules/slick-carousel/slick/slick.css'
+import '../node_modules/slick-carousel/slick/slick-theme.css'
 
 import {
 	HeaderBottom,
@@ -12,6 +17,11 @@ import {
 } from '../components/Header'
 
 import { LinkText } from '../components/Text'
+import {
+	SlideContainer,
+	SlideContentLeft,
+	SlideContentRight,
+} from '../components/Slide'
 
 export default function Home() {
 	return (
@@ -98,6 +108,57 @@ export default function Home() {
 					</Link>
 				</HeaderBottom>
 			</header>
+			<main>
+				<Slider
+					arrows={false}
+					autoplay={true}
+					autoplaySpeed={5000} // 5s
+					dots={true}
+					infinite={true}
+					pauseOnDotsHover={true}
+					pauseOnHover={true}
+					speed={800} // 1s
+					slidesToShow={1}
+					slidesToScroll={1}
+				>
+					<SlideContainer>
+						<SlideContentLeft>
+							<Image
+								alt='Flybuys logo'
+								src='https://media.prod.bunnings.com.au/api/public/content/6baf878a4cd24e54b3edef44a5760363?v=55744704'
+								width={48 / 1007 * 2888}
+								height={48}
+								layout='fixed'
+							/>
+							<h2>Collect even more points online and on Special Order purchases</h2>
+						</SlideContentLeft>
+						<SlideContentRight>
+							<figure>
+								<picture>
+									<source
+										media='(min-width: 1024px)'
+										srcSet='https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w704h408SmartCropdpr1 1x, https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w704h408SmartCropdpr2 2x'
+									/>
+									<source
+										media='(min-width: 768px)'
+										srcSet='https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w800dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w800dpr2 2x'
+									/>
+									<source
+										media='(min-width: 0px)'
+										srcSet='https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w300dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w300dpr2 2x'
+									/>
+									<Image
+										alt='person using flybuys card to shop online on the Bunnings website'
+										src='https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w704h408SmartCropdpr1'
+										width={704}
+										height={408}
+									/>
+								</picture>
+							</figure>
+						</SlideContentRight>
+					</SlideContainer>
+				</Slider>
+			</main>
 		</div>
 	)
 }
