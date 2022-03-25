@@ -17,7 +17,7 @@ export default function Home() {
 	return (
 		<div id='root'>
 			<Head>
-				<title>Gunnings Australia</title>
+				<title>Sunnings Australia</title>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
