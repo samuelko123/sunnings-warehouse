@@ -18,7 +18,7 @@ export const HeaderBottom = styled.div`
     justify-content: center;
     align-content: center;
 
-    padding: 0.25rem;
+    padding: 0.5rem;
 
     background-color: ${props => props.theme.color.surface};
     color: ${props => props.theme.color.onSurface};
@@ -56,6 +56,7 @@ export const HeaderContainerRight = styled.div`
 
 export const HeaderLink = styled.a`
     padding: 1rem 0.5rem;
+
     &:hover {
         background-color: ${props => props.theme.color.hoverPrimary};
     }
