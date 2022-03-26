@@ -27,10 +27,17 @@ import {
 } from '../components/Banner'
 import { ProductTile } from '../components/ProductTile'
 import { ShopButton } from '../components/Button'
-import { useBannerData } from '../hooks/useBannerData'
+import { useAjaxData } from '../hooks/useAjaxData'
+import {
+	Section,
+	SectionHeader,
+} from '../components/Section'
+import { CategoryTile } from '../components/CategoryTile'
+import { CategoryList } from '../components/CategoryList'
 
 export default function Home() {
-	const [isLoading, banners, errorMsg] = useBannerData()
+	const banners = useAjaxData('/api/banners')[1]
+	const categories = useAjaxData('/api/categories/featured')[1]
 
 	return (
 		<div id='root'>
@@ -151,6 +158,20 @@ export default function Home() {
 						)
 					})}
 				</Slider>
+				<Section>
+					<SectionHeader>Featured categories this week</SectionHeader>
+					<CategoryList>
+						{categories.map((category, index) => {
+							return (
+								<CategoryTile
+									key={index}
+									{...category}
+								/>
+							)
+						})}
+
+					</CategoryList>
+				</Section>
 			</main>
 		</div>
 	)

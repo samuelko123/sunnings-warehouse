@@ -10,5 +10,11 @@
 
 @font-face {
     font-family: 'Helvetica Neue';
+    src: url('/font/HelveticaNeueLTW05-55Roman.woff2') format('woff');
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
     src: url('/font/HelveticaNeueLTW05-75Bold.woff2') format('woff');
+    font-weight: bold;
 }
