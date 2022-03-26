@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -12,6 +11,7 @@ import {
 	HeaderContainerCentre,
 	HeaderContainerLeft,
 	HeaderContainerRight,
+	HeaderIcon,
 	HeaderLink,
 	HeaderTop,
 } from '../components/Header'
@@ -51,21 +51,17 @@ export default function Home() {
 					<HeaderContainerLeft>
 						<Link href='/' passHref={true}>
 							<HeaderLink title='Menu'>
-								<Image
+								<HeaderIcon
 									src='/img/menu.svg'
 									alt='menu'
-									width={16}
-									height={16}
 								/>
 							</HeaderLink>
 						</Link>
 						<Link href='/' passHref={true}>
 							<HeaderLink title='Search'>
-								<Image
+								<HeaderIcon
 									src='/img/search.svg'
 									alt='search'
-									width={16}
-									height={16}
 								/>
 							</HeaderLink>
 						</Link>
@@ -73,11 +69,9 @@ export default function Home() {
 					<HeaderContainerCentre>
 						<Link href='/' passHref={true}>
 							<a title='Home'>
-								<Image
+								<img
 									src='/img/logo.svg'
 									alt='Gunnings'
-									width={139}
-									height={25}
 								/>
 							</a>
 						</Link>
@@ -85,31 +79,25 @@ export default function Home() {
 					<HeaderContainerRight>
 						<Link href='/' passHref={true}>
 							<HeaderLink title='Project'>
-								<Image
+								<HeaderIcon
 									src='https://media.prod.bunnings.com.au/api/public/content/5b42ad75d69f451ebfe36fc80c66ebb3?v=b01b10ae'
 									alt='project'
-									width={16}
-									height={16}
 								/>
 							</HeaderLink>
 						</Link>
 						<Link href='/' passHref={true}>
 							<HeaderLink title='Account'>
-								<Image
+								<HeaderIcon
 									src='https://media.prod.bunnings.com.au/api/public/content/8207dca2dffb4169bef3a304820afad9?v=e72120af'
 									alt='account'
-									width={16}
-									height={16}
 								/>
 							</HeaderLink>
 						</Link>
 						<Link href='/' passHref={true}>
 							<HeaderLink title='Cart'>
-								<Image
+								<HeaderIcon
 									src='https://media.prod.bunnings.com.au/api/public/content/7a70f27a22174a8f8498160090353845?v=9af2832a'
 									alt='cart'
-									width={16}
-									height={16}
 								/>
 							</HeaderLink>
 						</Link>

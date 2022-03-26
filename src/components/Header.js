@@ -61,3 +61,8 @@ export const HeaderLink = styled.a`
         background-color: ${props => props.theme.color.hoverPrimary};
     }
 `
+
+export const HeaderIcon = styled.img`
+    width: 1rem;
+    height: 1rem;
+`
