@@ -115,12 +115,12 @@ export default function Home() {
 				<Slider
 					arrows={false}
 					autoplay={true}
-					autoplaySpeed={4000} // 4s
+					autoplaySpeed={5000} // 5s
 					dots={true}
 					infinite={true}
 					pauseOnDotsHover={true}
 					pauseOnHover={true}
-					speed={800} // 1s
+					speed={500} // 0.5s
 					slidesToShow={1}
 					slidesToScroll={1}
 				>
