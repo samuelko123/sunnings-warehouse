@@ -21,9 +21,9 @@ export const ShopButton = styled.button`
 	cursor: pointer;
     font-weight: bold;
 
-	background-color: #da291c;
-	color: #ffffff;
+	background-color: ${props => props.theme.color.secondary};
+	color: ${props => props.theme.color.onSecondary};
 	:hover {
-		background-color: #bc2318;
+		background-color: ${props => props.theme.color.hoverSecondary};
 	}
 `
