@@ -19,10 +19,7 @@ import {
 import { LinkText } from '../components/Text'
 import { Slide } from '../components/Slide'
 import {
-	Banner,
-	BannerContent,
 	BannerDesc,
-	BannerProducts,
 	BannerTitle,
 } from '../components/Banner'
 import { ProductTile } from '../components/ProductTile'
@@ -33,7 +30,10 @@ import {
 	SectionHeader,
 } from '../components/Section'
 import { CategoryTile } from '../components/CategoryTile'
-import { Grid } from '@mui/material'
+import {
+	Box,
+	Grid,
+} from '@mui/material'
 
 export default function Home() {
 	const banners = useAjaxData('/api/banners')[1]
@@ -127,21 +127,41 @@ export default function Home() {
 					{banners.map((banner, index) => {
 						return (
 							<Slide key={index}>
-								<Banner>
-									<BannerContent>
-										<BannerTitle>{banner.title}</BannerTitle>
-										<BannerDesc>{banner.desc}</BannerDesc>
-										<ShopButton>Shop now</ShopButton>
-									</BannerContent>
-									<BannerProducts>
-										<ProductTile
-											{...banner.product1}
-										/>
-										<ProductTile
-											{...banner.product2}
-										/>
-									</BannerProducts>
-								</Banner>
+								<Grid
+									container
+									spacing={2}
+									p={2}
+								>
+									<Grid
+										item xs={12} lg={6}
+										container
+										direction='column'
+										justifyContent='center'
+										alignItems='flex-start'
+									>
+										<Box>
+											<BannerTitle>{banner.title}</BannerTitle>
+											<BannerDesc>{banner.desc}</BannerDesc>
+											<ShopButton>Shop now</ShopButton>
+										</Box>
+									</Grid>
+									<Grid
+										item xs={12} lg={6}
+										container
+										spacing={2}
+									>
+										<Grid item xs={12} sm={6}>
+											<ProductTile
+												{...banner.product1}
+											/>
+										</Grid>
+										<Grid item xs={12} sm={6}>
+											<ProductTile
+												{...banner.product2}
+											/>
+										</Grid>
+									</Grid>
+								</Grid>
 							</Slide>
 						)
 					})}
