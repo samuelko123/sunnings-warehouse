@@ -33,7 +33,7 @@ import {
 	SectionHeader,
 } from '../components/Section'
 import { CategoryTile } from '../components/CategoryTile'
-import { CategoryList } from '../components/CategoryList'
+import { Grid } from '@mui/material'
 
 export default function Home() {
 	const banners = useAjaxData('/api/banners')[1]
@@ -148,17 +148,15 @@ export default function Home() {
 				</Slider>
 				<Section>
 					<SectionHeader>Featured categories this week</SectionHeader>
-					<CategoryList>
+					<Grid container spacing={2}>
 						{categories.map((category, index) => {
 							return (
-								<CategoryTile
-									key={index}
-									{...category}
-								/>
+								<Grid item xs={6} lg={3} key={index}>
+									<CategoryTile {...category} />
+								</Grid>
 							)
 						})}
-
-					</CategoryList>
+					</Grid>
 				</Section>
 			</main>
 		</div>

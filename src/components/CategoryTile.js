@@ -8,8 +8,6 @@ const Tile = styled.article`
     justify-content: flex-start;
     align-content: center;
 
-	width: 18rem;
-
     background-color: ${props => props.theme.color.surface};
     color: ${props => props.theme.color.onSurface};
 `
