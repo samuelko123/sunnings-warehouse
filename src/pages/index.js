@@ -27,8 +27,11 @@ import {
 } from '../components/Banner'
 import { ProductTile } from '../components/ProductTile'
 import { ShopButton } from '../components/Button'
+import { useBannerData } from '../hooks/useBannerData'
 
 export default function Home() {
+	const [isLoading, banners, errorMsg] = useBannerData()
+
 	return (
 		<div id='root'>
 			<Head>
@@ -126,52 +129,27 @@ export default function Home() {
 					slidesToShow={1}
 					slidesToScroll={1}
 				>
-					<Slide>
-						<Banner>
-							<BannerContent>
-								<BannerTitle>Lowest prices means completing your toolset for less</BannerTitle>
-								<BannerDesc>Great value on our range of XU1 power tools</BannerDesc>
-								<ShopButton>Shop now</ShopButton>
-							</BannerContent>
-							<BannerProducts>
-								<ProductTile
-									picLink1='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr2 2x'
-									picLink2='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1'
-									name='XU1 500W 13mm Hammer Drill'
-									price={29}
-								/>
-								<ProductTile
-									picLink1='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr2 2x'
-									picLink2='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1'
-									name='XU1 500W 13mm Hammer Drill'
-									price={29}
-								/>
-							</BannerProducts>
-						</Banner>
-					</Slide>
-					<Slide>
-						<Banner>
-							<BannerContent>
-								<BannerTitle>Lowest prices means completing your toolset for less</BannerTitle>
-								<BannerDesc>Great value on our range of XU1 power tools</BannerDesc>
-								<ShopButton>Shop now</ShopButton>
-							</BannerContent>
-							<BannerProducts>
-								<ProductTile
-									picLink1='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr2 2x'
-									picLink2='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1'
-									name='XU1 500W 13mm Hammer Drill'
-									price={29}
-								/>
-								<ProductTile
-									picLink1='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr2 2x'
-									picLink2='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1'
-									name='XU1 500W 13mm Hammer Drill'
-									price={29}
-								/>
-							</BannerProducts>
-						</Banner>
-					</Slide>
+					{banners.map((banner, index) => {
+						return (
+							<Slide key={index}>
+								<Banner>
+									<BannerContent>
+										<BannerTitle>{banner.title}</BannerTitle>
+										<BannerDesc>{banner.desc}</BannerDesc>
+										<ShopButton>Shop now</ShopButton>
+									</BannerContent>
+									<BannerProducts>
+										<ProductTile
+											{...banner.product1}
+										/>
+										<ProductTile
+											{...banner.product2}
+										/>
+									</BannerProducts>
+								</Banner>
+							</Slide>
+						)
+					})}
 				</Slider>
 			</main>
 		</div>
