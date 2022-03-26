@@ -5,6 +5,8 @@ import {
 
 import { theme } from '../styles/theme'
 
+import '../styles/fonts.css'
+
 const GlobalStyle = createGlobalStyle`
 	html,
 	body {

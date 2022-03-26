@@ -17,11 +17,16 @@ import {
 } from '../components/Header'
 
 import { LinkText } from '../components/Text'
+import { Slide } from '../components/Slide'
 import {
-	SlideContainer,
-	SlideContentLeft,
-	SlideContentRight,
-} from '../components/Slide'
+	Banner,
+	BannerContent,
+	BannerDesc,
+	BannerProducts,
+	BannerTitle,
+} from '../components/Banner'
+import { ProductTile } from '../components/ProductTile'
+import { ShopButton } from '../components/Button'
 
 export default function Home() {
 	return (
@@ -37,7 +42,7 @@ export default function Home() {
 						<Link href='/' passHref={true}>
 							<HeaderLink title='Menu'>
 								<Image
-									src='/menu.svg'
+									src='/img/menu.svg'
 									alt='menu'
 									width={16}
 									height={16}
@@ -47,7 +52,7 @@ export default function Home() {
 						<Link href='/' passHref={true}>
 							<HeaderLink title='Search'>
 								<Image
-									src='/search.svg'
+									src='/img/search.svg'
 									alt='search'
 									width={16}
 									height={16}
@@ -59,7 +64,7 @@ export default function Home() {
 						<Link href='/' passHref={true}>
 							<a title='Home'>
 								<Image
-									src='/logo.svg'
+									src='/img/logo.svg'
 									alt='Gunnings'
 									width={139}
 									height={25}
@@ -112,7 +117,7 @@ export default function Home() {
 				<Slider
 					arrows={false}
 					autoplay={true}
-					autoplaySpeed={5000} // 5s
+					autoplaySpeed={4000} // 4s
 					dots={true}
 					infinite={true}
 					pauseOnDotsHover={true}
@@ -121,42 +126,52 @@ export default function Home() {
 					slidesToShow={1}
 					slidesToScroll={1}
 				>
-					<SlideContainer>
-						<SlideContentLeft>
-							<Image
-								alt='Flybuys logo'
-								src='https://media.prod.bunnings.com.au/api/public/content/6baf878a4cd24e54b3edef44a5760363?v=55744704'
-								width={48 / 1007 * 2888}
-								height={48}
-								layout='fixed'
-							/>
-							<h2>Collect even more points online and on Special Order purchases</h2>
-						</SlideContentLeft>
-						<SlideContentRight>
-							<figure>
-								<picture>
-									<source
-										media='(min-width: 1024px)'
-										srcSet='https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w704h408SmartCropdpr1 1x, https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w704h408SmartCropdpr2 2x'
-									/>
-									<source
-										media='(min-width: 768px)'
-										srcSet='https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w800dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w800dpr2 2x'
-									/>
-									<source
-										media='(min-width: 0px)'
-										srcSet='https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w300dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w300dpr2 2x'
-									/>
-									<Image
-										alt='person using flybuys card to shop online on the Bunnings website'
-										src='https://media.prod.bunnings.com.au/api/public/content/a901d4787caf4ec99286589222cb9776?v=2d3e0f4c&amp;t=w704h408SmartCropdpr1'
-										width={704}
-										height={408}
-									/>
-								</picture>
-							</figure>
-						</SlideContentRight>
-					</SlideContainer>
+					<Slide>
+						<Banner>
+							<BannerContent>
+								<BannerTitle>Lowest prices means completing your toolset for less</BannerTitle>
+								<BannerDesc>Great value on our range of XU1 power tools</BannerDesc>
+								<ShopButton>Shop now</ShopButton>
+							</BannerContent>
+							<BannerProducts>
+								<ProductTile
+									picLink1='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr2 2x'
+									picLink2='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1'
+									name='XU1 500W 13mm Hammer Drill'
+									price={29}
+								/>
+								<ProductTile
+									picLink1='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr2 2x'
+									picLink2='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1'
+									name='XU1 500W 13mm Hammer Drill'
+									price={29}
+								/>
+							</BannerProducts>
+						</Banner>
+					</Slide>
+					<Slide>
+						<Banner>
+							<BannerContent>
+								<BannerTitle>Lowest prices means completing your toolset for less</BannerTitle>
+								<BannerDesc>Great value on our range of XU1 power tools</BannerDesc>
+								<ShopButton>Shop now</ShopButton>
+							</BannerContent>
+							<BannerProducts>
+								<ProductTile
+									picLink1='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr2 2x'
+									picLink2='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1'
+									name='XU1 500W 13mm Hammer Drill'
+									price={29}
+								/>
+								<ProductTile
+									picLink1='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr2 2x'
+									picLink2='https://media.prod.bunnings.com.au/api/public/content/700d5084dd4a43db8ff02ca3b3058ddf?v=da4427f2&amp;t=w150dpr1'
+									name='XU1 500W 13mm Hammer Drill'
+									price={29}
+								/>
+							</BannerProducts>
+						</Banner>
+					</Slide>
 				</Slider>
 			</main>
 		</div>

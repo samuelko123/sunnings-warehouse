@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Challenge';
+    src: url('/font/ChallengeForSunnings.woff2') format('woff');
+}
+
+@font-face {
+    font-family: 'Futura';
+    src: url('/font/FuturaLTW05-Heavy.woff2') format('woff');
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('/font/HelveticaNeueLTW05-75Bold.woff2') format('woff');
+}
