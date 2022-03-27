@@ -39,10 +39,34 @@ const ProductName = styled.span`
     line-height: 1.25rem;
 `
 
-const ProductPrice = styled.span`
+const ProductPriceDollar = styled.span`
 	font-family: Challenge, Futura, "Helvetica Neue", sans-serif;
 	font-size: 2rem;
 `
+
+const ProductPriceCent = styled.sup`
+	position: relative;
+    font-size: 70%;
+    left: 0.3rem;
+    vertical-align: 0.4rem;
+    line-height: 1;
+`
+
+const ProductPriceTag = (props) => {
+	const { price } = props
+
+	const [dollar, cent] = price.toFixed(2).split('.')
+
+	return (
+		<ProductPriceDollar>
+			${dollar}
+			{
+				cent !== '00' &&
+				<ProductPriceCent>.{cent}</ProductPriceCent>
+			}
+		</ProductPriceDollar>
+	)
+}
 
 export const ProductTile = (props) => {
 	const {
@@ -76,7 +100,7 @@ export const ProductTile = (props) => {
 				</ProductName>
 			</Box>
 			<TileFooter>
-				<ProductPrice>${price}</ProductPrice>
+				<ProductPriceTag price={price} />
 				<CartButton>
 					<img
 						alt='add to cart'
