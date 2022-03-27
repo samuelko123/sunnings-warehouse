@@ -15,6 +15,7 @@ import {
 import { LinkText } from '../components/Text'
 import { Slide } from '../components/Slide'
 import {
+	BannerContainer,
 	BannerDesc,
 	BannerTitle,
 } from '../components/Banner'
@@ -124,7 +125,7 @@ export default function Home() {
 					{banners && banners.map((banner, index) => {
 						return (
 							<Slide key={index}>
-								<Grid
+								<BannerContainer
 									container
 									spacing={2}
 									p={2}
@@ -136,11 +137,9 @@ export default function Home() {
 										justifyContent='center'
 										alignItems='flex-start'
 									>
-										<Box>
-											<BannerTitle>{banner.title}</BannerTitle>
-											<BannerDesc>{banner.desc}</BannerDesc>
-											<ShopButton>Shop now</ShopButton>
-										</Box>
+										<BannerTitle>{banner.title}</BannerTitle>
+										<BannerDesc>{banner.desc}</BannerDesc>
+										<ShopButton>Shop now</ShopButton>
 									</Grid>
 									<Grid
 										item xs={12} md={8} lg={6}
@@ -160,7 +159,7 @@ export default function Home() {
 											/>
 										</Grid>
 									</Grid>
-								</Grid>
+								</BannerContainer>
 							</Slide>
 						)
 					})}
