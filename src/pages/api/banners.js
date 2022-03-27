@@ -32,5 +32,37 @@ export default function handler(req, res) {
 				price: 38,
 			},
 		},
+		{
+			title: 'Keep your home fire-safe for less',
+			desc: 'Outstanding value on Fire Pro 9V smoke alarms',
+			product1: {
+				picLink1: 'https://media.prod.bunnings.com.au/api/public/content/0d924de984674b7fb62ed1d948f3252d?v=21cb134b&t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/0d924de984674b7fb62ed1d948f3252d?v=21cb134b&t=w150dpr2 2x',
+				picLink2: 'https://media.prod.bunnings.com.au/api/public/content/0d924de984674b7fb62ed1d948f3252d?v=21cb134b&t=w150dpr1',
+				name: 'Fire Pro 9V Photoelectric Smoke Alarm - 2 Pack',
+				price: 22,
+			},
+			product2: {
+				picLink1: 'https://media.prod.bunnings.com.au/api/public/content/c95b724c83404d5cb0a5bbe8d5be7f15?v=3a7d097a&t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/c95b724c83404d5cb0a5bbe8d5be7f15?v=3a7d097a&t=w150dpr2 2x',
+				picLink2: 'https://media.prod.bunnings.com.au/api/public/content/c95b724c83404d5cb0a5bbe8d5be7f15?v=3a7d097a&t=w150dpr1',
+				name: 'Fire Pro Extinguisher And Blanket Fire Safety Kit',
+				price: 38,
+			},
+		},
+		{
+			title: 'You can create the perfect bathroom with our lowest prices',
+			desc: "We've got the products and inspiration to create your dream bathroom",
+			product1: {
+				picLink1: 'https://media.prod.bunnings.com.au/api/public/content/6334432b4e9240a5957c461355633fb2?v=da62f69e&t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/6334432b4e9240a5957c461355633fb2?v=da62f69e&t=w150dpr2 2x',
+				picLink2: 'https://media.prod.bunnings.com.au/api/public/content/6334432b4e9240a5957c461355633fb2?v=da62f69e&t=w150dpr1',
+				name: 'Living Elements 500 x 750 x 26mm Black Framed Oblong Mirror',
+				price: 99,
+			},
+			product2: {
+				picLink1: 'https://media.prod.bunnings.com.au/api/public/content/51cd40bd6fd443449afd257e39d12e54?v=4a91ccae&t=w150dpr1 1x, https://media.prod.bunnings.com.au/api/public/content/51cd40bd6fd443449afd257e39d12e54?v=4a91ccae&t=w150dpr2 2x',
+				picLink2: 'https://media.prod.bunnings.com.au/api/public/content/51cd40bd6fd443449afd257e39d12e54?v=4a91ccae&t=w150dpr1',
+				name: 'British Paints Low Sheen White Clean And Protect Kitchen And Bathroom Interior Paint - 4L',
+				price: 79.9,
+			},
+		},
 	])
 }
