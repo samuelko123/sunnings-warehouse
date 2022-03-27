@@ -7,6 +7,7 @@ import '../../node_modules/slick-carousel/slick/slick.css'
 import '../../node_modules/slick-carousel/slick/slick-theme.css'
 
 import {
+	HeaderIcon,
 	HeaderLink,
 	HeaderTop,
 } from '../components/Header'
@@ -43,10 +44,7 @@ export default function Home() {
 			</Head>
 
 			<header>
-				<HeaderTop
-					container
-					p={2}
-				>
+				<HeaderTop container>
 					<Grid
 						item xs={5}
 						container
@@ -57,7 +55,7 @@ export default function Home() {
 							return (
 								<Link key={index} href={icon.href} passHref={true}>
 									<HeaderLink title={icon.tooltip}>
-										<img {...icon.img} />
+										<HeaderIcon {...icon.img} />
 									</HeaderLink>
 								</Link>
 							)
@@ -89,7 +87,7 @@ export default function Home() {
 							return (
 								<Link key={index} href={icon.href} passHref={true}>
 									<HeaderLink title={icon.tooltip}>
-										<img {...icon.img} />
+										<HeaderIcon {...icon.img} />
 									</HeaderLink>
 								</Link>
 							)

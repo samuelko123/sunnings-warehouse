@@ -7,9 +7,23 @@ export const HeaderTop = styled(Grid)`
 `
 
 export const HeaderLink = styled.a`
-    padding: 1rem 0.5rem;
+    @media (max-width: 48rem) {
+        padding: 1rem 0.5rem;
+    }
 
-    &:hover {
+    padding: 1rem 1rem;
+
+    :hover {
         background-color: ${props => props.theme.color.hoverPrimary};
     }
+`
+
+export const HeaderIcon = styled.img`
+    @media (max-width: 48rem) {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    width: 1.5rem;
+    height: 1.5rem;
 `
