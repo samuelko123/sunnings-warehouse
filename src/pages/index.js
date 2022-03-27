@@ -35,6 +35,7 @@ export default function Home() {
 	const headerIcons = useAjaxData('/api/header-icons')[1]
 	const banners = useAjaxData('/api/banners')[1]
 	const categories = useAjaxData('/api/categories/featured')[1]
+	const recommendations = useAjaxData('/api/recommendations')[1]
 
 	return (
 		<Box id='root'>
@@ -174,6 +175,21 @@ export default function Home() {
 							return (
 								<Grid item xs={6} sm={3} key={index}>
 									<ArticleCard {...category} />
+								</Grid>
+							)
+						})}
+					</Grid>
+				</Section>
+				<Section>
+					<SectionHeader>Recommended for you</SectionHeader>
+					<Grid
+						container
+						spacing={2}
+					>
+						{recommendations && recommendations.map((recommendation, index) => {
+							return (
+								<Grid item xs={6} sm={3} key={index}>
+									<ArticleCard {...recommendation} />
 								</Grid>
 							)
 						})}

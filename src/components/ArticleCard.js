@@ -84,7 +84,7 @@ export const ArticleCard = (props) => {
 								srcSet={picLink1}
 							/>
 							<CardImage
-								alt='Category image'
+								alt='illustration image'
 								src={picLink2}
 							/>
 						</picture>
