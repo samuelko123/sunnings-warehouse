@@ -3,7 +3,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { CartButton } from './Button'
 
-const Tile = styled.article`
+const Card = styled.article`
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -18,7 +18,7 @@ const Tile = styled.article`
     color: ${props => props.theme.color.onSurface};
 `
 
-const TileFooter = styled.div`
+const CardFooter = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -68,7 +68,7 @@ const ProductPriceTag = (props) => {
 	)
 }
 
-export const ProductTile = (props) => {
+export const ProductCard = (props) => {
 	const {
 		picLink1,
 		picLink2,
@@ -77,7 +77,7 @@ export const ProductTile = (props) => {
 	} = props
 
 	return (
-		<Tile>
+		<Card>
 			<Box>
 				<Link href='/' passHref={true}>
 					<a>
@@ -99,7 +99,7 @@ export const ProductTile = (props) => {
 					{name}
 				</ProductName>
 			</Box>
-			<TileFooter>
+			<CardFooter>
 				<ProductPriceTag price={price} />
 				<CartButton>
 					<img
@@ -107,7 +107,7 @@ export const ProductTile = (props) => {
 						src='/img/add-to-cart.svg'
 					/>
 				</CartButton>
-			</TileFooter>
-		</Tile>
+			</CardFooter>
+		</Card>
 	)
 }

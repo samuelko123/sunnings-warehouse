@@ -19,7 +19,7 @@ import {
 	BannerDesc,
 	BannerTitle,
 } from '../components/Banner'
-import { ProductTile } from '../components/ProductTile'
+import { ProductCard } from '../components/ProductCard'
 import { ShopButton } from '../components/Button'
 import { useAjaxData } from '../hooks/useAjaxData'
 import {
@@ -149,12 +149,12 @@ export default function Home() {
 										spacing={2}
 									>
 										<Grid item xs={12} md={6} lg={6}>
-											<ProductTile
+											<ProductCard
 												{...banner.product1}
 											/>
 										</Grid>
 										<Grid item xs={12} md={6} lg={6}>
-											<ProductTile
+											<ProductCard
 												{...banner.product2}
 											/>
 										</Grid>
