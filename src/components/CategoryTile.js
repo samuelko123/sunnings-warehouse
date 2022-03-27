@@ -1,4 +1,5 @@
-import { Grid } from '@mui/material'
+import React from 'react'
+import { Box } from '@mui/material'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -8,6 +9,10 @@ const Tile = styled.article`
 	flex-wrap: nowrap;
     justify-content: flex-start;
     align-content: center;
+
+	height: 17rem;
+
+	position: relative;
 
     background-color: ${props => props.theme.color.surface};
     color: ${props => props.theme.color.onSurface};
@@ -27,7 +32,27 @@ const CategoryName = styled.span`
 	color: ${props => props.theme.color.primary};
 `
 
+const TileFooter = styled(Box)`
+	${Tile}:hover & {
+		position: absolute;
+		bottom: 0;
+		background-color: ${props => props.theme.color.surface};
+	}
+
+	transition: all 0.5s;
+`
+
 const CategoryDesc = styled.p`
+	display: none;
+	${Tile}:hover & {
+		display: -webkit-box;
+	}
+   	-webkit-line-clamp: 4;
+   	-webkit-box-orient: vertical;
+   	overflow: hidden;
+   	text-overflow: ellipsis;
+	transition: all 0.5s;
+
 	margin: 0;
 
 	font-family: "Helvetica Neue", sans-serif;
@@ -43,10 +68,15 @@ export const CategoryTile = (props) => {
 		desc,
 	} = props
 
+	const [showDesc, setShowDesc] = React.useState(false)
+
 	return (
-		<Tile>
-			<Link href='/' passHref={true}>
-				<a>
+		<Link href='/' passHref={true}>
+			<a>
+				<Tile
+					onMouseEnter={() => setShowDesc(true)}
+					onMouseLeave={() => setShowDesc(false)}
+				>
 					<figure>
 						<picture>
 							<source
@@ -59,25 +89,17 @@ export const CategoryTile = (props) => {
 							/>
 						</picture>
 					</figure>
-				</a>
-			</Link>
 
-			<Grid
-				container
-				p={1}
-			>
-				<CategoryName>
-					{name}
-				</CategoryName>
-			</Grid>
-			<Grid
-				container
-				p={1}
-			>
-				<CategoryDesc>
-					{desc}
-				</CategoryDesc>
-			</Grid>
-		</Tile>
+					<TileFooter p={1} expand={showDesc}>
+						<CategoryName>
+							{name}
+						</CategoryName>
+						<CategoryDesc show={showDesc}>
+							{desc}
+						</CategoryDesc>
+					</TileFooter>
+				</Tile>
+			</a>
+		</Link>
 	)
 }
