@@ -7,11 +7,6 @@ import '../../node_modules/slick-carousel/slick/slick.css'
 import '../../node_modules/slick-carousel/slick/slick-theme.css'
 
 import {
-	HeaderBottom,
-	HeaderContainerCentre,
-	HeaderContainerLeft,
-	HeaderContainerRight,
-	HeaderIcon,
 	HeaderLink,
 	HeaderTop,
 } from '../components/Header'
@@ -36,6 +31,7 @@ import {
 } from '@mui/material'
 
 export default function Home() {
+	const headerIcons = useAjaxData('/api/header-icons')[1]
 	const banners = useAjaxData('/api/banners')[1]
 	const categories = useAjaxData('/api/categories/featured')[1]
 
@@ -47,69 +43,71 @@ export default function Home() {
 			</Head>
 
 			<header>
-				<HeaderTop>
-					<HeaderContainerLeft>
-						<Link href='/' passHref={true}>
-							<HeaderLink title='Menu'>
-								<HeaderIcon
-									src='/img/menu.svg'
-									alt='menu'
-								/>
-							</HeaderLink>
-						</Link>
-						<Link href='/' passHref={true}>
-							<HeaderLink title='Search'>
-								<HeaderIcon
-									src='/img/search.svg'
-									alt='search'
-								/>
-							</HeaderLink>
-						</Link>
-					</HeaderContainerLeft>
-					<HeaderContainerCentre>
-						<Link href='/' passHref={true}>
-							<a title='Home'>
-								<img
-									src='/img/logo.svg'
-									alt='Gunnings'
-								/>
-							</a>
-						</Link>
-					</HeaderContainerCentre>
-					<HeaderContainerRight>
-						<Link href='/' passHref={true}>
-							<HeaderLink title='Project'>
-								<HeaderIcon
-									src='https://media.prod.bunnings.com.au/api/public/content/5b42ad75d69f451ebfe36fc80c66ebb3?v=b01b10ae'
-									alt='project'
-								/>
-							</HeaderLink>
-						</Link>
-						<Link href='/' passHref={true}>
-							<HeaderLink title='Account'>
-								<HeaderIcon
-									src='https://media.prod.bunnings.com.au/api/public/content/8207dca2dffb4169bef3a304820afad9?v=e72120af'
-									alt='account'
-								/>
-							</HeaderLink>
-						</Link>
-						<Link href='/' passHref={true}>
-							<HeaderLink title='Cart'>
-								<HeaderIcon
-									src='https://media.prod.bunnings.com.au/api/public/content/7a70f27a22174a8f8498160090353845?v=9af2832a'
-									alt='cart'
-								/>
-							</HeaderLink>
-						</Link>
-					</HeaderContainerRight>
+				<HeaderTop
+					container
+					p={2}
+				>
+					<Grid
+						item xs={5}
+						container
+						justifyContent='flex-start'
+						alignItems='center'
+					>
+						{headerIcons && headerIcons.left.map((icon, index) => {
+							return (
+								<Link key={index} href={icon.href} passHref={true}>
+									<HeaderLink title={icon.tooltip}>
+										<img {...icon.img} />
+									</HeaderLink>
+								</Link>
+							)
+						})}
+					</Grid>
+					<Grid
+						item xs={2}
+						container
+						justifyContent='center'
+						alignItems='center'
+					>
+						{headerIcons && headerIcons.center.map((icon, index) => {
+							return (
+								<Link key={index} href={icon.href} passHref={true}>
+									<a title={icon.tooltip}>
+										<img {...icon.img} />
+									</a>
+								</Link>
+							)
+						})}
+					</Grid>
+					<Grid
+						item xs={5}
+						container
+						justifyContent='flex-end'
+						alignItems='center'
+					>
+						{headerIcons && headerIcons.right.map((icon, index) => {
+							return (
+								<Link key={index} href={icon.href} passHref={true}>
+									<HeaderLink title={icon.tooltip}>
+										<img {...icon.img} />
+									</HeaderLink>
+								</Link>
+							)
+						})}
+					</Grid>
 				</HeaderTop>
-				<HeaderBottom>
+				<Grid
+					container
+					justifyContent='center'
+					alignItems='enter'
+					p={1}
+				>
 					<Link href='/' passHref={true}>
 						<LinkText size={12} bold={true}>
 							Our Price Guarantee
 						</LinkText>
 					</Link>
-				</HeaderBottom>
+				</Grid>
 			</header>
 			<main>
 				<Slider
@@ -124,7 +122,7 @@ export default function Home() {
 					slidesToShow={1}
 					slidesToScroll={1}
 				>
-					{banners.map((banner, index) => {
+					{banners && banners.map((banner, index) => {
 						return (
 							<Slide key={index}>
 								<Grid
@@ -148,14 +146,16 @@ export default function Home() {
 									<Grid
 										item xs={12} lg={6}
 										container
+										justifyContent='center'
+										alignItems='center'
 										spacing={2}
 									>
-										<Grid item xs={12} sm={6}>
+										<Grid item xs={12} lg={6}>
 											<ProductTile
 												{...banner.product1}
 											/>
 										</Grid>
-										<Grid item xs={12} sm={6}>
+										<Grid item xs={12} lg={6}>
 											<ProductTile
 												{...banner.product2}
 											/>
@@ -168,10 +168,13 @@ export default function Home() {
 				</Slider>
 				<Section>
 					<SectionHeader>Featured categories this week</SectionHeader>
-					<Grid container spacing={2}>
-						{categories.map((category, index) => {
+					<Grid
+						container
+						spacing={2}
+					>
+						{categories && categories.map((category, index) => {
 							return (
-								<Grid item xs={6} lg={3} key={index}>
+								<Grid item xs={6} sm={3} key={index}>
 									<CategoryTile {...category} />
 								</Grid>
 							)
@@ -179,6 +182,6 @@ export default function Home() {
 					</Grid>
 				</Section>
 			</main>
-		</div>
+		</div >
 	)
 }

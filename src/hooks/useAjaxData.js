@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const useAjaxData = (url) => {
 	const [isLoading, setIsLoading] = React.useState(true)
-	const [data, setData] = React.useState([])
+	const [data, setData] = React.useState(null)
 	const [errorMsg, setErrorMsg] = React.useState(null)
 
 	const fetchData = async () => {

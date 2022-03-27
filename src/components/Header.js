@@ -1,57 +1,9 @@
+import { Grid } from '@mui/material'
 import styled from 'styled-components'
 
-export const HeaderTop = styled.div`
-    display: flex;
-    flex-direction: row;
-	flex-wrap: nowrap;
-    justify-content: space-between;
-    align-content: center;
-
+export const HeaderTop = styled(Grid)`
     background-color: ${props => props.theme.color.primary};
     color: ${props => props.theme.color.onPrimary};
-`
-
-export const HeaderBottom = styled.div`
-    display: flex;
-    flex-direction: row;
-	flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-
-    padding: 0.5rem;
-
-    background-color: ${props => props.theme.color.surface};
-    color: ${props => props.theme.color.onSurface};
-`
-
-export const HeaderContainerLeft = styled.div`
-    display: flex;
-    flex-direction: row;
-	flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: center;
-
-    flex: 1;
-`
-
-export const HeaderContainerCentre = styled.div`
-    display: flex;
-    flex-direction: row;
-	flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-
-    flex: 1;
-`
-
-export const HeaderContainerRight = styled.div`
-    display: flex;
-    flex-direction: row;
-	flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-content: center;
-
-    flex: 1;
 `
 
 export const HeaderLink = styled.a`
@@ -60,9 +12,4 @@ export const HeaderLink = styled.a`
     &:hover {
         background-color: ${props => props.theme.color.hoverPrimary};
     }
-`
-
-export const HeaderIcon = styled.img`
-    width: 1rem;
-    height: 1rem;
 `
