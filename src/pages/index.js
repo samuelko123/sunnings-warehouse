@@ -25,7 +25,7 @@ import {
 	Section,
 	SectionHeader,
 } from '../components/Section'
-import { CategoryTile } from '../components/CategoryTile'
+import { ArticleCard } from '../components/ArticleCard'
 import {
 	Box,
 	Grid,
@@ -173,7 +173,7 @@ export default function Home() {
 						{categories && categories.map((category, index) => {
 							return (
 								<Grid item xs={6} sm={3} key={index}>
-									<CategoryTile {...category} />
+									<ArticleCard {...category} />
 								</Grid>
 							)
 						})}

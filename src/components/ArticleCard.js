@@ -3,7 +3,7 @@ import { Box } from '@mui/material'
 import Link from 'next/link'
 import styled from 'styled-components'
 
-const Tile = styled.article`
+const Card = styled.article`
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -18,12 +18,12 @@ const Tile = styled.article`
     color: ${props => props.theme.color.onSurface};
 `
 
-const CategoryImage = styled.img`
+const CardImage = styled.img`
 	margin: auto;
 	width: 100%;
 `
 
-const CategoryName = styled.span`
+const CardTitle = styled.span`
 	font-family: "Helvetica Neue", sans-serif;
     font-weight: bold;
     font-size: 0.9rem;
@@ -32,8 +32,8 @@ const CategoryName = styled.span`
 	color: ${props => props.theme.color.primary};
 `
 
-const TileFooter = styled(Box)`
-	${Tile}:hover & {
+const CardFooter = styled(Box)`
+	${Card}:hover & {
 		position: absolute;
 		bottom: 0;
 		background-color: ${props => props.theme.color.surface};
@@ -42,9 +42,9 @@ const TileFooter = styled(Box)`
 	transition: all 0.5s;
 `
 
-const CategoryDesc = styled.p`
+const CardDesc = styled.p`
 	display: none;
-	${Tile}:hover & {
+	${Card}:hover & {
 		display: -webkit-box;
 	}
    	-webkit-line-clamp: 4;
@@ -60,7 +60,7 @@ const CategoryDesc = styled.p`
     line-height: 1.5rem;
 `
 
-export const CategoryTile = (props) => {
+export const ArticleCard = (props) => {
 	const {
 		picLink1,
 		picLink2,
@@ -73,7 +73,7 @@ export const CategoryTile = (props) => {
 	return (
 		<Link href='/' passHref={true}>
 			<a>
-				<Tile
+				<Card
 					onMouseEnter={() => setShowDesc(true)}
 					onMouseLeave={() => setShowDesc(false)}
 				>
@@ -83,22 +83,22 @@ export const CategoryTile = (props) => {
 								media='(min-width: 0px)'
 								srcSet={picLink1}
 							/>
-							<CategoryImage
+							<CardImage
 								alt='Category image'
 								src={picLink2}
 							/>
 						</picture>
 					</figure>
 
-					<TileFooter p={1} expand={showDesc}>
-						<CategoryName>
+					<CardFooter p={1} expand={showDesc}>
+						<CardTitle>
 							{name}
-						</CategoryName>
-						<CategoryDesc show={showDesc}>
+						</CardTitle>
+						<CardDesc show={showDesc}>
 							{desc}
-						</CategoryDesc>
-					</TileFooter>
-				</Tile>
+						</CardDesc>
+					</CardFooter>
+				</Card>
 			</a>
 		</Link>
 	)
