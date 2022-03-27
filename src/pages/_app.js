@@ -31,6 +31,20 @@ const GlobalStyle = createGlobalStyle`
 	figure {
 		margin: 0;
 	}
+
+	.slick-dots li button:before,
+	.slick-dots li.slick-active button:before {
+		font-size: 0.6rem;
+		position: relative;
+		opacity: 1;
+		color: transparent;
+		border: 2px solid ${props => props.theme.color.primary};
+		border-radius: 50%;
+	}
+
+	.slick-dots li.slick-active button:before {
+		background-color: ${props => props.theme.color.primary};
+	}
 `
 
 function App(props) {
