@@ -37,7 +37,7 @@ export default function Home() {
 	const categories = useAjaxData('/api/categories/featured')[1]
 
 	return (
-		<div id='root'>
+		<Box id='root'>
 			<Head>
 				<title>Sunnings Australia</title>
 				<link rel='icon' href='/favicon.ico' />
@@ -129,7 +129,7 @@ export default function Home() {
 									p={2}
 								>
 									<Grid
-										item xs={12} lg={6}
+										item xs={12} md={4} lg={6}
 										container
 										direction='column'
 										justifyContent='center'
@@ -142,18 +142,18 @@ export default function Home() {
 										</Box>
 									</Grid>
 									<Grid
-										item xs={12} lg={6}
+										item xs={12} md={8} lg={6}
 										container
 										justifyContent='center'
 										alignItems='center'
 										spacing={2}
 									>
-										<Grid item xs={12} lg={6}>
+										<Grid item xs={12} md={6} lg={6}>
 											<ProductTile
 												{...banner.product1}
 											/>
 										</Grid>
-										<Grid item xs={12} lg={6}>
+										<Grid item xs={12} md={6} lg={6}>
 											<ProductTile
 												{...banner.product2}
 											/>
@@ -180,6 +180,6 @@ export default function Home() {
 					</Grid>
 				</Section>
 			</main>
-		</div >
+		</Box>
 	)
 }

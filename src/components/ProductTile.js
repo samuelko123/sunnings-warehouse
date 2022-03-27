@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import Link from 'next/link'
 import styled from 'styled-components'
 import { CartButton } from './Button'
@@ -53,7 +54,7 @@ export const ProductTile = (props) => {
 
 	return (
 		<Tile>
-			<div>
+			<Box>
 				<Link href='/' passHref={true}>
 					<a>
 						<figure>
@@ -73,7 +74,7 @@ export const ProductTile = (props) => {
 				<ProductName>
 					{name}
 				</ProductName>
-			</div>
+			</Box>
 			<TileFooter>
 				<ProductPrice>${price}</ProductPrice>
 				<CartButton>

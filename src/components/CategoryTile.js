@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -10,15 +11,6 @@ const Tile = styled.article`
 
     background-color: ${props => props.theme.color.surface};
     color: ${props => props.theme.color.onSurface};
-`
-
-const TileFooter = styled.div`
-	padding: 0.5rem;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-    justify-content: space-between;
-    align-content: center;
 `
 
 const CategoryImage = styled.img`
@@ -36,6 +28,8 @@ const CategoryName = styled.span`
 `
 
 const CategoryDesc = styled.p`
+	margin: 0;
+
 	font-family: "Helvetica Neue", sans-serif;
     font-size: 0.9rem;
     line-height: 1.5rem;
@@ -68,14 +62,22 @@ export const CategoryTile = (props) => {
 				</a>
 			</Link>
 
-			<TileFooter>
+			<Grid
+				container
+				p={1}
+			>
 				<CategoryName>
 					{name}
 				</CategoryName>
+			</Grid>
+			<Grid
+				container
+				p={1}
+			>
 				<CategoryDesc>
 					{desc}
 				</CategoryDesc>
-			</TileFooter>
+			</Grid>
 		</Tile>
 	)
 }
