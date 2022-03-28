@@ -6,46 +6,36 @@ import styled from 'styled-components'
 const Card = styled.article`
 	position: relative;
 
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: center;
-
-    background-color: ${props => props.theme.color.surface};
-    color: ${props => props.theme.color.onSurface};
-`
-
-const CardImage = styled.img`
-	width: 100%;
-`
-
-const CardTitle = styled.span`
-	font-family: "Helvetica Neue", sans-serif;
-    font-weight: bold;
-    font-size: 0.9rem;
-    line-height: 1.25rem;
-
-	color: ${props => props.theme.color.primary};
+	:hover {
+		border: 1px solid ${props => props.theme.color.primary};
+	}
 `
 
 const CardHeader = styled(Box)`
-	position: absolute;
-	top: 0;
-	z-index: 2;
-
 	width: 100%;
 	height: auto;
-	max-height: 2.5rem;
-
-	background-color: ${props => props.theme.color.surface};
-	overflow: hidden;
-
+	max-height: 3rem;
 	${Card}:hover & {
 		max-height: 10rem;
 	}
+	transition: max-height 0.7s ease;
 
-	transition: max-height 1s ease;
+	background-color: ${props => props.theme.color.surface};
+
+	position: absolute;
+	bottom: 0;
+	z-index: 2;
+	overflow: hidden;
+`
+
+const CardTitle = styled.p`
+	margin: 0;
+	height: 2rem;
+
+	font-family: "Helvetica Neue", sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+	color: ${props => props.theme.color.primary};
 `
 
 const CardDesc = styled.p`
@@ -54,18 +44,28 @@ const CardDesc = styled.p`
 	font-family: "Helvetica Neue", sans-serif;
     font-size: 0.9rem;
     line-height: 1.5rem;
+	color: ${props => props.theme.color.onSurface};
 
 	display: -webkit-box;
 	overflow: hidden;
    	text-overflow: ellipsis;
-	-webkit-line-clamp: 3;
+	-webkit-line-clamp: 4;
    	-webkit-box-orient: vertical;
+
+	opacity: 0;
+	${Card}:hover & {
+		opacity: 1;
+	}
+	transition: opacity 0.5s ease 0.2s;
+
+	@media (max-width: 48rem) {
+		line-height: 1.2rem;
+		-webkit-line-clamp: 3;
+	}
 `
 
-const Figure = styled.figure`
-	position: relative;
-	top: 2.5rem;
-	z-index: 1;
+const CardImage = styled.img`
+	width: 100%;
 `
 
 export const ArticleCard = (props) => {
@@ -88,7 +88,7 @@ export const ArticleCard = (props) => {
 							{desc}
 						</CardDesc>
 					</CardHeader>
-					<Figure>
+					<figure>
 						<picture>
 							<source
 								media='(min-width: 0px)'
@@ -99,7 +99,7 @@ export const ArticleCard = (props) => {
 								src={picLink2}
 							/>
 						</picture>
-					</Figure>
+					</figure>
 				</Card>
 			</a>
 		</Link>
