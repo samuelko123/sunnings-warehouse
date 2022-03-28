@@ -1,35 +1,40 @@
-import { Box } from '@mui/material'
+import { Grid } from '@mui/material'
 import Link from 'next/link'
 import styled from 'styled-components'
 import { CartButton } from './Button'
 
 const Card = styled.article`
 	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-    justify-content: space-between;
-    align-content: center;
-
-    padding: 1rem;
-	width: 17rem;
-	height: 21rem;
-
-    background-color: ${props => props.theme.color.surface};
-    color: ${props => props.theme.color.onSurface};
-`
-
-const CardFooter = styled.div`
-	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
     justify-content: space-between;
     align-content: center;
+
+	width: 100%;
+	height: 9rem;
+	padding: 0.5rem;
+	padding-left: 0;
+
+    background-color: ${props => props.theme.color.surface};
+    color: ${props => props.theme.color.onSurface};
+
+	@media (min-width: 48rem) {
+		flex-direction: column;
+		width: 17rem;
+		height: 21rem;
+		padding: 1rem;
+	}
 `
 
 const ProductImage = styled.img`
-	margin: auto;
-	width: 10rem;
-	height: 10rem;
+	margin: 0;
+
+	width: 8rem;
+	height: 8rem;
+	@media (min-width: 48rem) {
+		width: 10rem;
+		height: 10rem;
+	}
 `
 
 const ProductName = styled.span`
@@ -78,7 +83,11 @@ export const ProductCard = (props) => {
 
 	return (
 		<Card>
-			<Box>
+			<Grid
+				container
+				justifyContent='center'
+				alignItems='center'
+			>
 				<Link href='/' passHref={true}>
 					<a>
 						<figure>
@@ -95,19 +104,30 @@ export const ProductCard = (props) => {
 						</figure>
 					</a>
 				</Link>
+			</Grid>
+
+			<Grid
+				container
+				justifyContent='space-between'
+				alignItems='center'
+			>
 				<ProductName>
 					{name}
 				</ProductName>
-			</Box>
-			<CardFooter>
-				<ProductPriceTag price={price} />
-				<CartButton>
-					<img
-						alt='add to cart'
-						src='/img/add-to-cart.svg'
-					/>
-				</CartButton>
-			</CardFooter>
+				<Grid
+					container
+					justifyContent='space-between'
+					alignItems='center'
+				>
+					<ProductPriceTag price={price} />
+					<CartButton>
+						<img
+							alt='add to cart'
+							src='/img/add-to-cart.svg'
+						/>
+					</CartButton>
+				</Grid>
+			</Grid>
 		</Card>
 	)
 }

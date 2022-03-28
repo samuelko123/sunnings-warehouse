@@ -16,7 +16,9 @@ import { LinkText } from '../components/Text'
 import { Slide } from '../components/Slide'
 import {
 	BannerContainer,
+	BannerContent,
 	BannerDesc,
+	BannerProduct,
 	BannerTitle,
 } from '../components/Banner'
 import { ProductCard } from '../components/ProductCard'
@@ -125,13 +127,17 @@ export default function Home() {
 					{banners && banners.map((banner, index) => {
 						return (
 							<Slide key={index}>
-								<BannerContainer
-									container
-									spacing={2}
-									p={2}
-								>
-									<Grid
-										item xs={12} md={4} lg={6}
+								<BannerContainer>
+									<BannerProduct>
+										<ProductCard
+											{...banner.product1}
+										/>
+										<ProductCard
+											{...banner.product2}
+										/>
+									</BannerProduct>
+									<BannerContent
+										item xs={12} md={6}
 										container
 										direction='column'
 										justifyContent='center'
@@ -140,25 +146,7 @@ export default function Home() {
 										<BannerTitle>{banner.title}</BannerTitle>
 										<BannerDesc>{banner.desc}</BannerDesc>
 										<ShopButton>Shop now</ShopButton>
-									</Grid>
-									<Grid
-										item xs={12} md={8} lg={6}
-										container
-										justifyContent='center'
-										alignItems='center'
-										spacing={2}
-									>
-										<Grid item xs={12} md={6} lg={6}>
-											<ProductCard
-												{...banner.product1}
-											/>
-										</Grid>
-										<Grid item xs={12} md={6} lg={6}>
-											<ProductCard
-												{...banner.product2}
-											/>
-										</Grid>
-									</Grid>
+									</BannerContent>
 								</BannerContainer>
 							</Slide>
 						)
