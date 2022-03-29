@@ -42,6 +42,12 @@ const ProductName = styled.span`
     font-weight: bold;
     font-size: 0.9rem;
     line-height: 1.25rem;
+
+	display: -webkit-box;
+	overflow: hidden;
+   	text-overflow: ellipsis;
+	-webkit-line-clamp: 3;
+   	-webkit-box-orient: vertical;
 `
 
 const ProductPriceDollar = styled.span`

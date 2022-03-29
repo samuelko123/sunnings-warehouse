@@ -1,5 +1,23 @@
 import styled from 'styled-components'
 
+export const BannerContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    height: 40rem;
+
+    padding: 1rem;
+    background-color: #e5e0ce;
+
+    @media (min-width: 48rem) {
+        flex-direction: row-reverse;
+        padding: 1rem 2rem;
+        height: auto;
+    }
+`
+
 export const BannerTitle = styled.h2`
     margin: 0;
 
@@ -16,20 +34,6 @@ export const BannerDesc = styled.p`
     line-height: 1.5;
 
     color: ${props => props.theme.color.primary};
-`
-
-export const BannerContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    padding: 1rem;
-    background-color: #e5e0ce;
-
-    @media (min-width: 48rem) {
-        flex-direction: row-reverse;
-        padding: 1rem 2rem;
-    }
 `
 
 export const BannerContent = styled.div`
