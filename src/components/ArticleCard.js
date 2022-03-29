@@ -1,5 +1,4 @@
 import React from 'react'
-import { Box } from '@mui/material'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -11,7 +10,8 @@ const Card = styled.article`
 	}
 `
 
-const CardHeader = styled(Box)`
+const CardHeader = styled.div`
+	padding: 0.5rem;
 	width: 100%;
 	height: auto;
 	max-height: 3rem;
@@ -80,7 +80,7 @@ export const ArticleCard = (props) => {
 		<Link href='/' passHref={true}>
 			<a>
 				<Card>
-					<CardHeader p={1}>
+					<CardHeader>
 						<CardTitle>
 							{name}
 						</CardTitle>

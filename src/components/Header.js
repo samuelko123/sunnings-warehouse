@@ -1,7 +1,11 @@
-import { Grid } from '@mui/material'
 import styled from 'styled-components'
 
-export const HeaderTop = styled(Grid)`
+export const HeaderTop = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
     background-color: ${props => props.theme.color.primary};
     color: ${props => props.theme.color.onPrimary};
 `

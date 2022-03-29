@@ -29,10 +29,8 @@ import {
 	SectionHeader,
 } from '../components/Section'
 import { ArticleCard } from '../components/ArticleCard'
-import {
-	Box,
-	Grid,
-} from '@mui/material'
+import { FlexBox } from '../components/Flexbox'
+import { ArticleCardContainer } from '../components/ArticleCardContainer'
 
 export default function Home() {
 	const headerIcons = useAjaxData('/api/header-icons')[1]
@@ -41,17 +39,15 @@ export default function Home() {
 	const recommendations = useAjaxData('/api/recommendations')[1]
 
 	return (
-		<Box id='root'>
+		<div id='root'>
 			<Head>
 				<title>Sunnings Australia</title>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
 			<header>
-				<HeaderTop container>
-					<Grid
-						item xs={5}
-						container
+				<HeaderTop>
+					<FlexBox
 						justifyContent='flex-start'
 						alignItems='center'
 					>
@@ -64,10 +60,8 @@ export default function Home() {
 								</Link>
 							)
 						})}
-					</Grid>
-					<Grid
-						item xs={2}
-						container
+					</FlexBox>
+					<FlexBox
 						justifyContent='center'
 						alignItems='center'
 					>
@@ -80,10 +74,8 @@ export default function Home() {
 								</Link>
 							)
 						})}
-					</Grid>
-					<Grid
-						item xs={5}
-						container
+					</FlexBox>
+					<FlexBox
 						justifyContent='flex-end'
 						alignItems='center'
 					>
@@ -96,12 +88,11 @@ export default function Home() {
 								</Link>
 							)
 						})}
-					</Grid>
+					</FlexBox>
 				</HeaderTop>
-				<Grid
-					container
+				<FlexBox
 					justifyContent='center'
-					alignItems='enter'
+					alignItems='center'
 					p={1}
 				>
 					<Link href='/' passHref={true}>
@@ -109,7 +100,7 @@ export default function Home() {
 							Our Price Guarantee
 						</LinkText>
 					</Link>
-				</Grid>
+				</FlexBox>
 			</header>
 			<main>
 				<Slider
@@ -154,35 +145,29 @@ export default function Home() {
 				</Slider>
 				<Section>
 					<SectionHeader>Featured categories this week</SectionHeader>
-					<Grid
-						container
-						spacing={2}
-					>
+					<ArticleCardContainer gap={2}>
 						{categories && categories.map((category, index) => {
 							return (
-								<Grid item xs={6} sm={3} key={index}>
+								<FlexBox key={index}>
 									<ArticleCard {...category} />
-								</Grid>
+								</FlexBox>
 							)
 						})}
-					</Grid>
+					</ArticleCardContainer>
 				</Section>
 				<Section>
 					<SectionHeader>Recommended for you</SectionHeader>
-					<Grid
-						container
-						spacing={2}
-					>
+					<ArticleCardContainer gap={2}>
 						{recommendations && recommendations.map((recommendation, index) => {
 							return (
-								<Grid item xs={6} sm={3} key={index}>
+								<FlexBox key={index}>
 									<ArticleCard {...recommendation} />
-								</Grid>
+								</FlexBox>
 							)
 						})}
-					</Grid>
+					</ArticleCardContainer>
 				</Section>
 			</main>
-		</Box>
+		</div >
 	)
 }
