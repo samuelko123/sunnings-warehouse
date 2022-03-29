@@ -70,8 +70,7 @@ const CardImage = styled.img`
 
 export const ArticleCard = (props) => {
 	const {
-		picLink1,
-		picLink2,
+		imgSrc,
 		name,
 		desc,
 	} = props
@@ -89,16 +88,10 @@ export const ArticleCard = (props) => {
 						</CardDesc>
 					</CardHeader>
 					<figure>
-						<picture>
-							<source
-								media='(min-width: 0px)'
-								srcSet={picLink1}
-							/>
-							<CardImage
-								alt='illustration image'
-								src={picLink2}
-							/>
-						</picture>
+						<CardImage
+							alt='illustration image'
+							src={imgSrc}
+						/>
 					</figure>
 				</Card>
 			</a>

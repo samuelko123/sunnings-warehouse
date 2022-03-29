@@ -111,8 +111,7 @@ const ProductPriceTag = (props) => {
 
 export const ProductCard = (props) => {
 	const {
-		picLink1,
-		picLink2,
+		imgSrc,
 		name,
 		price,
 	} = props
@@ -123,16 +122,10 @@ export const ProductCard = (props) => {
 				<Link href='/' passHref={true}>
 					<a>
 						<figure>
-							<picture>
-								<source
-									media='(min-width: 0px)'
-									srcSet={picLink1}
-								/>
-								<ProductImage
-									alt='Product image'
-									src={picLink2}
-								/>
-							</picture>
+							<ProductImage
+								alt='Product image'
+								src={imgSrc}
+							/>
 						</figure>
 					</a>
 				</Link>
