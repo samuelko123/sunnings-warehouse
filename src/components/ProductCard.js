@@ -48,11 +48,17 @@ const CardContent = styled.div`
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-
 	gap: 0.5rem;
+	flex: 1;
 `
 
-const ProductName = styled.span`
+const CardTitle = styled.div`
+	width: 100%;
+`
+
+const ProductName = styled.p`
+	margin: 0;
+
 	font-family: "Helvetica Neue", sans-serif;
     font-weight: bold;
     font-size: 0.9rem;
@@ -133,9 +139,11 @@ export const ProductCard = (props) => {
 			</ImageContainer>
 
 			<CardContent>
-				<ProductName>
-					{name}
-				</ProductName>
+				<CardTitle>
+					<ProductName>
+						{name}
+					</ProductName>
+				</CardTitle>
 				<CardDetail>
 					<ProductPriceTag price={price} />
 					<CartButton>

@@ -4,7 +4,7 @@ export const BannerContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
     gap: 1rem;
     height: 40rem;
 
@@ -13,6 +13,7 @@ export const BannerContainer = styled.div`
 
     @media (min-width: 48rem) {
         flex-direction: row-reverse;
+        align-items: center;
         padding: 1rem 2rem;
         height: auto;
     }
