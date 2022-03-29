@@ -5,6 +5,8 @@ import {
 
 import { theme } from '../styles/theme'
 
+import { Layout } from '../components/Layout'
+
 import '../styles/fonts.css'
 
 const GlobalStyle = createGlobalStyle`
@@ -55,8 +57,10 @@ function App(props) {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<GlobalStyle />
-			<Component {...pageProps} />
+			<Layout>
+				<GlobalStyle />
+				<Component {...pageProps} />
+			</Layout>
 		</ThemeProvider>
 	)
 }

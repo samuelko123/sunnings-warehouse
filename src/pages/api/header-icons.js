@@ -46,7 +46,7 @@ export default function handler(req, res) {
 				},
 			},
 			{
-				href: '/',
+				href: '/cart',
 				tooltip: 'Cart',
 				img: {
 					src: 'https://media.prod.bunnings.com.au/api/public/content/7a70f27a22174a8f8498160090353845?v=9af2832a',
