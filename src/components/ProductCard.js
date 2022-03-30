@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import { CartButton } from './Button'
+import { Stepper } from './Stepper'
 
 const CardContainer = styled.article`
 	display: flex;
@@ -114,7 +115,10 @@ export const ProductCard = (props) => {
 		imgSrc,
 		name,
 		price,
+		qty,
 	} = props
+
+	qty = qty || 0
 
 	return (
 		<CardContainer>
@@ -138,13 +142,21 @@ export const ProductCard = (props) => {
 					</ProductName>
 				</CardTitle>
 				<CardDetail>
-					<ProductPriceTag price={price} />
-					<CartButton>
-						<img
-							alt='add to cart'
-							src='/img/add-to-cart.svg'
-						/>
-					</CartButton>
+					{qty === 0 &&
+						<>
+							<ProductPriceTag price={price} />
+							<CartButton>
+								<img
+									alt='add to cart'
+									src='/img/add-to-cart.svg'
+								/>
+							</CartButton>
+						</>
+					}
+					{
+						qty > 0 &&
+						<Stepper num={qty} />
+					}
 				</CardDetail>
 			</CardContent>
 		</CardContainer>
