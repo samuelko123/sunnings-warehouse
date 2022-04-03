@@ -1,5 +1,11 @@
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import {
+	cartSelectors,
+	updateCartItem,
+} from '../redux/slices/cartSlice'
+import { store } from '../redux/store'
 import { CartButton } from './Button'
 import { Stepper } from './Stepper'
 
@@ -112,13 +118,23 @@ const ProductPriceTag = (props) => {
 
 export const ProductCard = (props) => {
 	const {
+		itemNum,
 		imgSrc,
 		name,
 		price,
-		qty,
 	} = props
 
-	qty = qty || 0
+	const item = useSelector(state => cartSelectors.selectById(state, itemNum))
+	const qty = item ? item.qty : 0
+
+	const handleCartChange = (value) => {
+		store.dispatch(
+			updateCartItem({
+				id: itemNum,
+				qty: value,
+			})
+		)
+	}
 
 	return (
 		<CardContainer>
@@ -145,7 +161,7 @@ export const ProductCard = (props) => {
 					{qty === 0 &&
 						<>
 							<ProductPriceTag price={price} />
-							<CartButton>
+							<CartButton onClick={() => handleCartChange(1)}>
 								<img
 									alt='add to cart'
 									src='/img/add-to-cart.svg'
@@ -154,8 +170,13 @@ export const ProductCard = (props) => {
 						</>
 					}
 					{
-						qty > 0 &&
-						<Stepper num={qty} />
+						qty !== 0 &&
+						<Stepper
+							value={qty}
+							min={0}
+							max={500}
+							onChange={handleCartChange}
+						/>
 					}
 				</CardDetail>
 			</CardContent>

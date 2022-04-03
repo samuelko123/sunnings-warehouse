@@ -2,11 +2,15 @@ import {
 	ThemeProvider,
 	createGlobalStyle,
 } from 'styled-components'
+import { PersistGate } from 'redux-persist/integration/react'
+import { Provider } from 'react-redux'
 
-import { theme } from '../styles/theme'
-
+import {
+	persistor,
+	store,
+} from '../redux/store'
 import { Layout } from '../components/Layout'
-
+import { theme } from '../styles/theme'
 import '../styles/fonts.css'
 
 const GlobalStyle = createGlobalStyle`
@@ -56,12 +60,16 @@ function App(props) {
 	} = props
 
 	return (
-		<ThemeProvider theme={theme}>
-			<Layout>
-				<GlobalStyle />
-				<Component {...pageProps} />
-			</Layout>
-		</ThemeProvider>
+		<Provider store={store}>
+			<PersistGate loading={null} persistor={persistor}>
+				<ThemeProvider theme={theme}>
+					<Layout>
+						<GlobalStyle />
+						<Component {...pageProps} />
+					</Layout>
+				</ThemeProvider>
+			</PersistGate>
+		</Provider>
 	)
 }
 

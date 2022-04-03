@@ -50,11 +50,9 @@ export default function Home() {
 								<BannerProduct>
 									<ProductCard
 										{...banner.product1}
-										qty={0}
 									/>
 									<ProductCard
 										{...banner.product2}
-										qty={1}
 									/>
 								</BannerProduct>
 								<BannerContent
