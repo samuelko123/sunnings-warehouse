@@ -6,7 +6,7 @@ export const useAjaxData = (url) => {
 	const [data, setData] = React.useState(null)
 	const [errorMsg, setErrorMsg] = React.useState(null)
 
-	const fetchData = async () => {
+	const fetchData = React.useCallback(async () => {
 		try {
 			setIsLoading(true)
 			const res = await axios.get(url)
@@ -16,11 +16,11 @@ export const useAjaxData = (url) => {
 		} finally {
 			setIsLoading(false)
 		}
-	}
+	}, [url])
 
 	React.useEffect(() => {
 		fetchData()
-	}, [])
+	}, [fetchData])
 
 	return [isLoading, data, errorMsg]
 }
