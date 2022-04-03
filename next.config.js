@@ -10,4 +10,7 @@ module.exports = {
 			'media.prod.bunnings.com.au',
 		],
 	},
+	eslint: {
+		dirs: ['src'],
+	},
 }
