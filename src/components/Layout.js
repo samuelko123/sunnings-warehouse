@@ -19,11 +19,11 @@ const HeaderTop = styled.div`
 `
 
 const HeaderLink = styled.a`
-    @media (max-width: 48rem) {
-        padding: 1rem 0.5rem;
+    @media (min-width: 48rem) {
+        padding: 1rem 1rem;
     }
 
-    padding: 1rem 1rem;
+	padding: 1rem 0.5rem;
 
     :hover {
         background-color: ${props => props.theme.color.hoverPrimary};
@@ -31,13 +31,13 @@ const HeaderLink = styled.a`
 `
 
 const HeaderIcon = styled.img`
-    @media (max-width: 48rem) {
-        width: 1rem;
-        height: 1rem;
+    @media (min-width: 48rem) {
+		width: 1.5rem;
+    	height: 1.5rem;
     }
 
-    width: 1.5rem;
-    height: 1.5rem;
+	width: 1rem;
+    height: 1rem;
 `
 
 const CartIconContainer = styled.div`

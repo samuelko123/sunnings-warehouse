@@ -43,13 +43,13 @@ const CardDesc = styled.p`
 	margin-bottom: 0;
 	font-family: "Helvetica Neue", sans-serif;
     font-size: 0.9rem;
-    line-height: 1.5rem;
+    line-height: 1.2rem;
 	color: ${props => props.theme.color.onSurface};
 
 	display: -webkit-box;
 	overflow: hidden;
    	text-overflow: ellipsis;
-	-webkit-line-clamp: 4;
+	   -webkit-line-clamp: 3;
    	-webkit-box-orient: vertical;
 
 	opacity: 0;
@@ -58,9 +58,9 @@ const CardDesc = styled.p`
 	}
 	transition: opacity 0.5s ease 0.2s;
 
-	@media (max-width: 48rem) {
-		line-height: 1.2rem;
-		-webkit-line-clamp: 3;
+	@media (min-width: 48rem) {
+		line-height: 1.5rem;
+		-webkit-line-clamp: 4;
 	}
 `
 
