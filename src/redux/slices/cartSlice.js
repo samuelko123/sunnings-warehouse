@@ -11,14 +11,18 @@ const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		updateCartItem: cartItemsAdapter.upsertOne,
-		removeCartItem: cartItemsAdapter.removeOne,
+		updateCartItem: (state, item) => {
+			if (item.payload.qty) {
+				cartItemsAdapter.upsertOne(state, item)
+			} else {
+				cartItemsAdapter.removeOne(state, item.payload.id)
+			}
+		},
 	},
 })
 
 export const {
 	updateCartItem,
-	removeCartItem,
 } = cartSlice.actions
 
 export const cartSelectors = cartItemsAdapter.getSelectors((state) => state.cart)

@@ -57,7 +57,7 @@ export const Layout = (props) => {
 
 	const headerIcons = useAjaxData('/api/header-icons')[1]
 	const cartItems = useSelector(state => cartSelectors.selectAll(state))
-	const cartItemTotal = cartItems.reduce((prev, curr) => prev + curr.qty, 0)
+	const cartItemCount = cartItems.reduce((prev, curr) => prev + curr.qty, 0)
 
 	return (
 		<>
@@ -119,7 +119,9 @@ export const Layout = (props) => {
 										src='https://media.prod.bunnings.com.au/api/public/content/7a70f27a22174a8f8498160090353845?v=9af2832a'
 										alt='cart'
 									/>
-									<Badge>{cartItemTotal}</Badge>
+									{cartItemCount > 0 &&
+										<Badge>{cartItemCount}</Badge>
+									}
 								</HeaderLink>
 							</Link>
 						</CartIconContainer>
