@@ -16,6 +16,7 @@ import '../styles/fonts.css'
 const GlobalStyle = createGlobalStyle`
 	html,
 	body {
+		overflow-x: hidden;
 		padding: 0;
 		margin: 0;
 		font-size: 16px;

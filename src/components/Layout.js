@@ -1,9 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { FlexBox } from '../components/Flexbox'
 import { useAjaxData } from '../hooks/useAjaxData'
+import { cartSelectors } from '../redux/slices/cartSlice'
+import { Badge } from './Badge'
 
 const HeaderTop = styled.div`
     display: flex;
@@ -37,6 +40,11 @@ const HeaderIcon = styled.img`
     height: 1.5rem;
 `
 
+const CartIconContainer = styled.div`
+	position: relative;
+	display: flex;
+`
+
 const HeaderBottom = styled(FlexBox)`
     background-color: ${props => props.theme.color.surface};
     color: ${props => props.theme.color.onSurface};
@@ -48,6 +56,8 @@ export const Layout = (props) => {
 	const { children } = props
 
 	const headerIcons = useAjaxData('/api/header-icons')[1]
+	const cartItems = useSelector(state => cartSelectors.selectAll(state))
+	const cartItemTotal = cartItems.reduce((prev, curr) => prev + curr.qty, 0)
 
 	return (
 		<>
@@ -99,6 +109,20 @@ export const Layout = (props) => {
 								</Link>
 							)
 						})}
+						<CartIconContainer>
+							<Link
+								href='/cart'
+								passHref={true}
+							>
+								<HeaderLink title='Cart'>
+									<HeaderIcon
+										src='https://media.prod.bunnings.com.au/api/public/content/7a70f27a22174a8f8498160090353845?v=9af2832a'
+										alt='cart'
+									/>
+									<Badge>{cartItemTotal}</Badge>
+								</HeaderLink>
+							</Link>
+						</CartIconContainer>
 					</FlexBox>
 				</HeaderTop>
 				<HeaderBottom
