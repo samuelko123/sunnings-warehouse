@@ -42,52 +42,61 @@ export const Stepper = (props) => {
 		onChange,
 	} = props
 
-	const [num, setNum] = React.useState(value)
+	const KEY_ENTER = 13
+	const KEY_ESC = 27
+	const [text, setText] = React.useState(value)
+
+	const applyNumBound = (x) => {
+		return Math.min(Math.max(x, min), max)
+	}
 
 	const handleDecrement = () => {
-		const _value = Math.max(min, num - 1)
-		setNum(_value)
+		const _value = applyNumBound((text || 0) - 1)
+		setText(_value)
 		onChange(_value)
 	}
 
 	const handleIncrement = () => {
-		const _value = Math.min(max, num + 1)
-		setNum(_value)
+		const _value = applyNumBound((text || 0) + 1)
+		setText(_value)
 		onChange(_value)
 	}
 
 	const handleChange = (e) => {
-		const text = e.target.value
+		const _text = e.target.value
 
-		// regex - one or more digits
-		if (!/^[0-9]*$/.test(text)) {
+		// regex - zero or more digits
+		if (!/^[0-9]*$/.test(_text)) {
 			return
 		}
 
 		// convert to int (null/blank to 0)
-		const int_val = text ? parseInt(text) : 0
+		const int_val = _text ? parseInt(_text) : 0
 
 		// restrict num to be between min and max
-		const adj_val = Math.min(Math.max(int_val, min), max)
+		const adj_val = applyNumBound(int_val)
 
-		// set input field to 0 if blank
-		setNum(adj_val)
-
-		// commit non-zero value to redux
-		if (adj_val > 0) {
-			onChange(adj_val)
-		}
+		// set input text
+		adj_val === 0 ? setText('') : setText(adj_val)
 	}
 
 	const handleBlur = () => {
-		// commit zero value to redux
-		if (num === 0) {
-			onChange(0)
+		// commit input value
+		onChange(text || 0)
+	}
+
+	const handleKeyDown = (e) => {
+		if (
+			e.keyCode === KEY_ENTER ||
+			e.keyCode === KEY_ESC
+		) {
+			onChange(text || 0)
+			e.target.blur()
 		}
 	}
 
 	return (
-		<Container onBlur={handleBlur}>
+		<Container>
 			<Button onClick={handleDecrement}>
 				<img
 					src='/img/minus.svg'
@@ -95,8 +104,10 @@ export const Stepper = (props) => {
 				/>
 			</Button>
 			<Input
-				value={num}
+				value={text}
 				onChange={handleChange}
+				onKeyDown={handleKeyDown}
+				onBlur={handleBlur}
 			/>
 			<Button onClick={handleIncrement}>
 				<img
