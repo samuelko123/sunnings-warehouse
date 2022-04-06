@@ -1,5 +1,6 @@
 import {
 	createEntityAdapter,
+	createSelector,
 	createSlice,
 } from '@reduxjs/toolkit'
 
@@ -25,6 +26,17 @@ export const {
 	updateCartItem,
 } = cartSlice.actions
 
-export const cartSelectors = cartItemsAdapter.getSelectors((state) => state.cart)
+const {
+	selectAll,
+	selectById,
+} = cartItemsAdapter.getSelectors(state => state.cart)
+
+export const selectCartItemQty = createSelector(selectById, item => {
+	return item ? item.qty : 0
+})
+
+export const selectCartItemQtyTotal = createSelector(selectAll, items => {
+	return items.reduce((prev, curr) => prev + curr.qty, 0)
+})
 
 export const cartReducer = cartSlice.reducer

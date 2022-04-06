@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import {
-	cartSelectors,
+	selectCartItemQty,
 	updateCartItem,
 } from '../redux/slices/cartSlice'
 import { store } from '../redux/store'
@@ -124,8 +124,7 @@ export const ProductCard = (props) => {
 		price,
 	} = props
 
-	const item = useSelector(state => cartSelectors.selectById(state, itemNum))
-	const qty = item ? item.qty : 0
+	const qty = useSelector(state => selectCartItemQty(state, itemNum))
 
 	const handleCartChange = (value) => {
 		store.dispatch(

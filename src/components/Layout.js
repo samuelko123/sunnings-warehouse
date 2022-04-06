@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { FlexBox } from '../components/Flexbox'
 import { useAjaxData } from '../hooks/useAjaxData'
-import { cartSelectors } from '../redux/slices/cartSlice'
+import { selectCartItemQtyTotal } from '../redux/slices/cartSlice'
 import { Badge } from './Badge'
 
 const HeaderTop = styled.div`
@@ -56,8 +56,7 @@ export const Layout = (props) => {
 	const { children } = props
 
 	const headerIcons = useAjaxData('/api/header-icons')[1]
-	const cartItems = useSelector(state => cartSelectors.selectAll(state))
-	const cartItemCount = cartItems.reduce((prev, curr) => prev + curr.qty, 0)
+	const cartItemCount = useSelector(state => selectCartItemQtyTotal(state))
 
 	return (
 		<>
