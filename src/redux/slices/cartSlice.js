@@ -26,16 +26,16 @@ export const {
 	updateCartItem,
 } = cartSlice.actions
 
-const {
-	selectAll,
-	selectById,
+export const {
+	selectAll: selectAllCartItems,
+	selectById: selectCartItemById,
 } = cartItemsAdapter.getSelectors(state => state.cart)
 
-export const selectCartItemQty = createSelector(selectById, item => {
+export const selectCartItemQty = createSelector(selectCartItemById, item => {
 	return item ? item.qty : 0
 })
 
-export const selectCartItemQtyTotal = createSelector(selectAll, items => {
+export const selectCartItemQtyTotal = createSelector(selectAllCartItems, items => {
 	return items.reduce((prev, curr) => prev + curr.qty, 0)
 })
 
