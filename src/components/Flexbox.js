@@ -5,8 +5,8 @@ export const FlexBox = styled.div`
     flex-direction: ${props => props.flexDirection};
     justify-content: ${props => props.justifyContent};
     align-items: ${props => props.alignItems};
-    gap: ${props => props.gap * 0.5}rem;
+    gap: ${props => props.gap ? `${props.gap * 0.5}rem` : null };
 
-    padding: ${props => props.p * 0.5}rem;
+    padding: ${props => props.p ? `${props.p * 0.5}rem` : null };
     flex: 1;
 `
